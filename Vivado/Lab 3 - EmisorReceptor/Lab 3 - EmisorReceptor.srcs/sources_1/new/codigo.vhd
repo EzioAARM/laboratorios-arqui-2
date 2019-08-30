@@ -116,7 +116,11 @@ process(timer,reset,sensores)
                 if(contador>=x"5F5E0FF") then
                     contador <= (others => '0');
                 else
-                    contador <= contador + "0000001";
+                     if sensores = "110" then
+                        contador <= contador + "0000001";
+                    elsif sensores = "011" then
+                        contador <= contador - "0000001";
+                    end if;
                 end if;
             end if;
     end process;
@@ -129,7 +133,11 @@ process(timer,reset,sensores)
             numero <= (others => '0');
         elsif(rising_edge(timer) and (sensores = "011" or sensores = "110")) then
              if(activo='1') then
-                numero <= numero + x"0001";
+                if sensores = "110" then
+                    numero <= numero + x"0001";
+                elsif sensores = "011" then
+                    numero <= numero - x"0001";
+                end if;
              end if;
         end if;
     end process;

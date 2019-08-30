@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date         : Fri Aug 30 14:44:08 2019
+| Date         : Fri Aug 30 14:59:29 2019
 | Host         : axel-laptop running 64-bit Ubuntu 18.04.3 LTS
 | Command      : report_control_sets -verbose -file codigo_control_sets_placed.rpt
 | Design       : codigo
@@ -70,12 +70,12 @@ Table of Contents
 4. Detailed Control Set Information
 -----------------------------------
 
-+------------------+---------------------+------------------+------------------+----------------+
-|   Clock Signal   |    Enable Signal    | Set/Reset Signal | Slice Load Count | Bel Load Count |
-+------------------+---------------------+------------------+------------------+----------------+
-|  timer_IBUF_BUFG |                     | reset_IBUF       |                3 |             11 |
-|  timer_IBUF_BUFG | numero0             | reset_IBUF       |                4 |             16 |
-|  timer_IBUF_BUFG | contador[0]_i_1_n_0 | reset_IBUF       |                7 |             28 |
-+------------------+---------------------+------------------+------------------+----------------+
++------------------+---------------+------------------+------------------+----------------+
+|   Clock Signal   | Enable Signal | Set/Reset Signal | Slice Load Count | Bel Load Count |
++------------------+---------------+------------------+------------------+----------------+
+|  timer_IBUF_BUFG |               | reset_IBUF       |                3 |             11 |
+|  timer_IBUF_BUFG | numero0       | reset_IBUF       |                4 |             16 |
+|  timer_IBUF_BUFG | contador0     | reset_IBUF       |                7 |             28 |
++------------------+---------------+------------------+------------------+----------------+
 
 
