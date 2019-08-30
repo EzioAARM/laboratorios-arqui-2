@@ -53,7 +53,9 @@ signal numero: STD_LOGIC_VECTOR (15 downto 0);
 signal SDDisplay: STD_LOGIC_VECTOR (3 downto 0);
 signal rfsh: STD_LOGIC_VECTOR (10 downto 0);
 signal act: std_logic_vector(1 downto 0);
+signal limitante: STD_LOGIC;
 begin
+limitante <= '0';
 
 process(SDDisplay, contador)
     begin
@@ -103,49 +105,33 @@ process(act)
         when "11" =>
             Display <= "1110"; 
             SDDisplay <= numero(3 downto 0);
-    
         end case;
     end process;
 
-process(sensores)
+process(timer,reset,sensores)
     begin
-        if contador >= x"5F5E0FF" then
-            contador <= (others => '0');
-        else
-            case sensores is
-                when "011" => contador <= contador + "0000001";
-                when "110" => contador <= contador + "0000001";
-                when others =>
-            end case;
-        end if;
---            if(reset='1') then
---                contador <= (others => '0');
---            elsif(rising_edge(timer)) then
---                if(contador>=x"5F5E0FF") then
---                    contador <= (others => '0');
---                else
---                    contador <= contador + "0000001";
---                end if;
---            end if;
+            if(reset='1') then
+                contador <= (others => '0');
+            elsif(rising_edge(timer) and (sensores = "011" or sensores = "110")) then
+                if(contador>=x"5F5E0FF") then
+                    contador <= (others => '0');
+                else
+                    contador <= contador + "0000001";
+                end if;
+            end if;
     end process;
     
 activo <= '1' when contador=x"5F5E0FF" else '0';
 
-process(sensores)
+process(timer,reset,sensores)
     begin
-        case sensores is
-            when "011" => numero <= numero + x"0001";
-            when "110" => numero <= numero + x"0001";
-            when others =>
-        end case;
-        
---            if(reset='1') then
---                numero <= (others => '0');
---            elsif(rising_edge(timer)) then
---                 if(activo='1') then
---                    numero <= numero + x"0001";
---                 end if;
---            end if;
+        if(reset='1') then
+            numero <= (others => '0');
+        elsif(rising_edge(timer) and (sensores = "011" or sensores = "110")) then
+             if(activo='1') then
+                numero <= numero + x"0001";
+             end if;
+        end if;
     end process;
     
 end Behavioral;
