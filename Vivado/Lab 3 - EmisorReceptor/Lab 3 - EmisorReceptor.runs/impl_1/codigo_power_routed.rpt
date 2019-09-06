@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date             : Fri Aug 30 14:59:46 2019
+| Date             : Fri Sep  6 07:19:39 2019
 | Host             : axel-laptop running 64-bit Ubuntu 18.04.3 LTS
 | Command          : report_power -file codigo_power_routed.rpt -pb codigo_power_summary_routed.pb -rpx codigo_power_routed.rpx
 | Design           : codigo
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.788        |
+| Total On-Chip Power (W)  | 1.743        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.715        |
-| Device Static (W)        | 0.073        |
+| Dynamic (W)              | 1.667        |
+| Device Static (W)        | 0.076        |
 | Effective TJA (C/W)      | 5.0          |
-| Max Ambient (C)          | 81.1         |
-| Junction Temperature (C) | 28.9         |
+| Max Ambient (C)          | 76.3         |
+| Junction Temperature (C) | 33.7         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,16 +52,16 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     0.377 |      175 |       --- |             --- |
-|   LUT as Logic |     0.280 |       77 |     20800 |            0.37 |
-|   CARRY4       |     0.080 |       11 |      8150 |            0.13 |
-|   Register     |     0.012 |       55 |     41600 |            0.13 |
+| Slice Logic    |     0.370 |      177 |       --- |             --- |
+|   LUT as Logic |     0.270 |       91 |     20800 |            0.44 |
+|   CARRY4       |     0.085 |       11 |      8150 |            0.13 |
+|   Register     |     0.010 |       61 |     41600 |            0.15 |
 |   BUFG         |     0.006 |        1 |        32 |            3.13 |
-|   Others       |     0.000 |        2 |       --- |             --- |
-| Signals        |     0.226 |      105 |       --- |             --- |
-| I/O            |     0.111 |       16 |       106 |           15.09 |
-| Static Power   |     0.073 |          |           |                 |
-| Total          |     0.788 |          |           |                 |
+|   Others       |     0.000 |        3 |       --- |             --- |
+| Signals        |     0.234 |      123 |       --- |             --- |
+| I/O            |     1.064 |       16 |       106 |           15.09 |
+| Static Power   |     0.076 |          |           |                 |
+| Total          |     1.743 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,9 +71,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.630 |       0.619 |      0.011 |
-| Vccaux    |       1.800 |     0.016 |       0.003 |      0.013 |
-| Vcco33    |       3.300 |     0.028 |       0.027 |      0.001 |
+| Vccint    |       1.000 |     0.633 |       0.620 |      0.013 |
+| Vccaux    |       1.800 |     0.051 |       0.038 |      0.013 |
+| Vcco33    |       3.300 |     0.298 |       0.297 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -138,7 +138,7 @@ Table of Contents
 +--------+-----------+
 | Name   | Power (W) |
 +--------+-----------+
-| codigo |     0.715 |
+| codigo |     1.667 |
 +--------+-----------+
 
 

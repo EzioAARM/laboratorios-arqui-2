@@ -34,7 +34,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity codigo is
 GENERIC(
-    NBITS  : integer :=  9; -- Cantidad de bits del n�mero binario.
+    NBITS  : integer :=  9; -- Cantidad de bits del n?mero binario.
     NSALIDA: integer := 11  -- Cantidad de bits de salida en formato BCD.
 );
 Port (
@@ -53,9 +53,11 @@ signal numero: STD_LOGIC_VECTOR (15 downto 0);
 signal SDDisplay: STD_LOGIC_VECTOR (3 downto 0);
 signal rfsh: STD_LOGIC_VECTOR (10 downto 0);
 signal act: std_logic_vector(1 downto 0);
-signal limitante: STD_LOGIC;
+signal limitante1: STD_LOGIC;
+signal limitante2: STD_LOGIC;
+signal limitante3: STD_LOGIC;
+signal limitante4: STD_LOGIC;
 begin
-limitante <= '0';
 
 process(SDDisplay, contador)
     begin
@@ -110,36 +112,33 @@ process(act)
 
 process(timer,reset,sensores)
     begin
-            if(reset='1') then
+            if (sensores = "100") then
+                limitante1 <= '1';
+                limitante2 <= '0';
+            elsif (sensores = "001") then
+                limitante2 <= '1';
+                limitante1 <= '0';
+            elsif(reset='1') then
                 contador <= (others => '0');
-            elsif(rising_edge(timer) and (sensores = "011" or sensores = "110")) then
+            elsif(rising_edge(timer) and (sensores = "010")) then
                 if(contador>=x"5F5E0FF") then
                     contador <= (others => '0');
                 else
-                     if sensores = "110" then
+                     if limitante1 = '1' and limitante2 = '0' then
                         contador <= contador + "0000001";
-                    elsif sensores = "011" then
+                        numero <= numero + x"0001";
+                        limitante1 <= '0';
+                        limitante3 <= '1';
+                    elsif limitante1 = '0' and limitante2 = '1' then
                         contador <= contador - "0000001";
+                        numero <= numero - x"0001";
+                        limitante2 <= '0';
+                        limitante4 <= '1';
                     end if;
                 end if;
             end if;
     end process;
     
 activo <= '1' when contador=x"5F5E0FF" else '0';
-
-process(timer,reset,sensores)
-    begin
-        if(reset='1') then
-            numero <= (others => '0');
-        elsif(rising_edge(timer) and (sensores = "011" or sensores = "110")) then
-             if(activo='1') then
-                if sensores = "110" then
-                    numero <= numero + x"0001";
-                elsif sensores = "011" then
-                    numero <= numero - x"0001";
-                end if;
-             end if;
-        end if;
-    end process;
     
 end Behavioral;
