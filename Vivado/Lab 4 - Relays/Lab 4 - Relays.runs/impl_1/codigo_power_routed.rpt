@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date             : Fri Sep  6 09:26:50 2019
+| Date             : Fri Sep  6 19:34:48 2019
 | Host             : axel-laptop running 64-bit Ubuntu 18.04.3 LTS
 | Command          : report_power -file codigo_power_routed.rpt -pb codigo_power_summary_routed.pb -rpx codigo_power_routed.rpx
 | Design           : codigo
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 2.255        |
+| Total On-Chip Power (W)  | 4.414        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 2.177        |
-| Device Static (W)        | 0.077        |
+| Dynamic (W)              | 4.327        |
+| Device Static (W)        | 0.087        |
 | Effective TJA (C/W)      | 5.0          |
-| Max Ambient (C)          | 73.7         |
-| Junction Temperature (C) | 36.3         |
+| Max Ambient (C)          | 62.9         |
+| Junction Temperature (C) | 47.1         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -56,10 +56,10 @@ Table of Contents
 |   LUT as Logic |     0.003 |        2 |     20800 |           <0.01 |
 |   Others       |     0.000 |        2 |       --- |             --- |
 |   Register     |     0.000 |        1 |     41600 |           <0.01 |
-| Signals        |     0.018 |        7 |       --- |             --- |
-| I/O            |     2.157 |        7 |       106 |            6.60 |
-| Static Power   |     0.077 |          |           |                 |
-| Total          |     2.255 |          |           |                 |
+| Signals        |     0.028 |        7 |       --- |             --- |
+| I/O            |     4.297 |       10 |       106 |            9.43 |
+| Static Power   |     0.087 |          |           |                 |
+| Total          |     4.414 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -69,9 +69,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.051 |       0.037 |      0.014 |
-| Vccaux    |       1.800 |     0.091 |       0.078 |      0.013 |
-| Vcco33    |       3.300 |     0.607 |       0.606 |      0.001 |
+| Vccint    |       1.000 |     0.068 |       0.046 |      0.022 |
+| Vccaux    |       1.800 |     0.171 |       0.157 |      0.014 |
+| Vcco33    |       3.300 |     1.213 |       1.212 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -136,7 +136,7 @@ Table of Contents
 +--------+-----------+
 | Name   | Power (W) |
 +--------+-----------+
-| codigo |     2.177 |
+| codigo |     4.327 |
 +--------+-----------+
 
 

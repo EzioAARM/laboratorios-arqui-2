@@ -37,6 +37,9 @@ Port (
     sensor2 : in STD_LOGIC;
     sensor3 : in STD_LOGIC;
     activador : in STD_LOGIC;
+    led1: out STD_LOGIC;
+    led2: out STD_LOGIC;
+    led3: out STD_LOGIC;
     relay1 : out STD_LOGIC;
     relay2 : out STD_LOGIC;
     relay3 : out STD_LOGIC
@@ -49,20 +52,26 @@ process (sensor1,sensor2,sensor3,activador)
     begin
         if sensor1 = '1' then
             relay1 <= '1';
+            led1 <= '1';
         else
             relay1 <= '0';
+            led1 <= '0';
         end if;
         
         if sensor2 = '1' and activador = '0' then
             relay2 <= '1';
+            led2 <= '1';
         elsif sensor2 = '0' and activador = '1' then
             relay2 <= '0';
+            led2 <= '0';
         end if;
         
         if sensor3 = '1' then
             relay3 <= '1';
+            led3 <= '1';
         else
             relay3 <= '0';
+            led3 <= '0';
         end if;
     end process;
     

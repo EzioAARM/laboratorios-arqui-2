@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date         : Fri Sep  6 09:26:50 2019
+| Date         : Fri Sep  6 19:34:49 2019
 | Host         : axel-laptop running 64-bit Ubuntu 18.04.3 LTS
 | Command      : report_timing_summary -max_paths 10 -file codigo_timing_summary_routed.rpt -pb codigo_timing_summary_routed.pb -rpx codigo_timing_summary_routed.rpx -warn_on_violation
 | Design       : codigo
@@ -84,7 +84,7 @@ Table of Contents
 
 6. checking no_output_delay
 ---------------------------
- There is 1 port with no output delay specified. (HIGH)
+ There are 2 ports with no output delay specified. (HIGH)
 
  There are 0 ports with no output delay but user has a false path constraint
 
